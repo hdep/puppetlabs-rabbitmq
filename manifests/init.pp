@@ -76,6 +76,7 @@ class rabbitmq(
   $config_additional_variables = $rabbitmq::params::config_additional_variables,
   $auth_backends              = $rabbitmq::params::auth_backends,
   $key_content                = undef,
+  $key                        = {},
   $collect_statistics_interval = $rabbitmq::params::collect_statistics_interval,
 ) inherits rabbitmq::params {
 
@@ -232,6 +233,7 @@ class rabbitmq(
         class { '::rabbitmq::repo::apt' :
           key_source  => $package_gpg_key,
           key_content => $key_content,
+          key         => $key,
         }
         $package_require = Class['apt::update']
       }
