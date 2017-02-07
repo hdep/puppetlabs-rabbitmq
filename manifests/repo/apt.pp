@@ -6,7 +6,7 @@ class rabbitmq::repo::apt(
   $release      = 'testing',
   $repos        = 'main',
   $include_src  = false,
-  $key          = '0A9AF2115F4687BD29803A206B73A36E6026DFCA',
+  $key          = { 'id' => '0A9AF2115F4687BD29803A206B73A36E6026DFCA',},
   $key_source   = 'https://www.rabbitmq.com/rabbitmq-release-signing-key.asc',
   $key_content  = undef,
   $architecture = undef,
